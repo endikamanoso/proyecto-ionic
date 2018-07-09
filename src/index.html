@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="es" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <title>Ionic App</title>
@@ -14,6 +14,7 @@
   <!-- add to homescreen for ios -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   <!-- cordova.js required for cordova apps (remove if not needed) -->
   <script src="cordova.js"></script>
@@ -34,7 +35,7 @@
 
   <!-- Ionic's root component and where the app will load -->
   <ion-app></ion-app>
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <!-- The polyfills js is generated during the build process -->
   <script src="build/polyfills.js"></script>
 
@@ -44,6 +45,54 @@
 
   <!-- The main bundle js is generated during the build process -->
   <script src="build/main.js"></script>
-
+  <script>
+      $(function(){
+          $("#boton_inicio").css("visibility","hidden");
+          //SI PULSO BOTON_INICIO_SESION
+          $("#boton_inicio_sesion").on("click",function(){
+              $("#menu").css("visibility","hidden");
+              $("#inicio_sesion").css({
+                  "visibility":"visible",
+                  "position":"fixed",
+                  "width":"100%",
+                  "height":"100%",
+                  "top":"73px"
+              });
+              $("#boton_inicio").css({
+                  "visibility":"visible",
+                  "position":"fixed",
+                  "top":"17%",
+                  "left":"40%",
+                  "width":"20%"
+              });
+              //SI PULSO BOTON_REGISTRO
+          });
+          $("#boton_registro").on("click",function(){
+              $("#menu").css("visibility","hidden");
+              $("#registro").css({
+                  "display":"null",
+                  "visibility":"visible",
+                  "position":"fixed",
+                  "width":"100%",
+                  "height":"100%",
+                  "top":"73px"
+              });
+              $("#boton_inicio").css({
+                  "visibility":"visible",
+                  "position":"fixed",
+                  "top":"17%",
+                  "left":"40%",
+                  "width":"20%"
+              })
+          });
+          //SI PULSO BOTON_INICIO
+          $("#boton_inicio").on("click",function(){
+              $("#menu").css("visibility","visible");
+              $(this).css("visibility","hidden");
+              $("#registro").css("visibility","hidden");
+              $("#inicio_sesion").css("visibility","hidden");
+          });
+      });
+  </script>
 </body>
 </html>
